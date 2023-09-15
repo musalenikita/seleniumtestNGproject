@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import Resources.baseClass;
+import Resources.commonmethods;
 import pageObjectModels.loginPageObjects;
 import pageObjectModels.myInfoPageObjects;
 
@@ -73,25 +74,12 @@ public class myInfoTestCases extends baseClass {
 	  Thread.sleep(2000);
 	  mpo.clickOnNationalityDropdwon().click();
 	  
-	  Thread.sleep(3000);
-	  List<WebElement> obj= mpo.chooseNationality();
+	  commonmethods.handleDropdown(mpo.chooseNationality(), "Indian");
 	  
-	  for(WebElement k:obj) {
-	   if(k.getText().equalsIgnoreCase("Indian")) {
-	    k.click();
-	             break;
-	             }
-	  }
+	  commonmethods.handleDropdown(mpo.chooseMaritalStatus(), "single");
 	 
-	  Thread.sleep(5000);
-	  List<WebElement> obj1= mpo.chooseMaritalStatus();
 	  
-	 for(WebElement k:obj1) {
-	   if(k.getText().equalsIgnoreCase("single")) {
-	    k.click();
-	             break;
-	   }
-	 }
+	  
 	  
 		 
 	  

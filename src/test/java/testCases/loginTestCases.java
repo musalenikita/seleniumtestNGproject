@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import Resources.Constants;
 import Resources.baseClass;
 import Resources.commonmethods;
 import pageObjectModels.loginPageObjects;
@@ -18,10 +19,10 @@ public class loginTestCases extends baseClass {
 		Thread.sleep(2000);
 
 		loginPageObjects lpo = new loginPageObjects(driver);
-		lpo.enterUsername().sendKeys("Admin");
-		lpo.enterPassword().sendKeys("admin123");
+		lpo.enterUsername().sendKeys(Constants.username);
+		lpo.enterPassword().sendKeys(Constants.validPassword);
 		lpo.clickonlogin().click();
-		commonmethods.handleAssertion(driver.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
+		commonmethods.handleAssertion(driver.getCurrentUrl(), Constants.dashboardUrl);
 	}
 
 
@@ -31,12 +32,12 @@ public class loginTestCases extends baseClass {
 		Thread.sleep(2000);
 
 		loginPageObjects lpo = new loginPageObjects(driver);
-		lpo.enterUsername().sendKeys("Admin345");
-		lpo.enterPassword().sendKeys("admin12321");
+		lpo.enterUsername().sendKeys(Constants.username);
+		lpo.enterPassword().sendKeys(Constants.invalidPAssword);
 		lpo.clickonlogin().click();
 
 		Thread.sleep(5000);
-		commonmethods.handleAssertion(lpo.erroemesage().getText(),"Invalid credentials");
+		commonmethods.handleAssertion(lpo.erroemesage().getText(),Constants.invalidErrorExpectedText);
 		
 	}
 
