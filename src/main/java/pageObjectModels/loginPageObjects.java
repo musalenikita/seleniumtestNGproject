@@ -14,6 +14,8 @@ public class loginPageObjects {
 	 private By password=By.xpath("//input[@name='password']");
 	 
 	 private By login=By.xpath("//button[@type='submit']");
+	 
+	 private By errormessage=By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']");
 
 
 	 //This is constructor
@@ -38,6 +40,11 @@ public class loginPageObjects {
 	    public WebElement clickonlogin() {
 	  
 	  return driver.findElement(login);
+	    }
+
+	    public WebElement erroemesage() {
+	  
+	  return driver.findElement(errormessage);
 	    }
 	    
 

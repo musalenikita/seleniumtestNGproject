@@ -17,9 +17,7 @@ public class myInfoTestCases extends baseClass {
 	 public void fillPersonalDetails() throws IOException, InterruptedException {
 	  
 	  
-	  initializeDriver();
-	  driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-	  
+	
 	  driver.manage().window().maximize();
 	  Thread.sleep(2000);
 	  
@@ -50,7 +48,28 @@ public class myInfoTestCases extends baseClass {
 	  Thread.sleep(2000);
 	  mpo.NickName().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
 	  mpo.NickName().sendKeys("bob");
+	  
+	  Thread.sleep(2000);
+	  mpo.empID().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+	  mpo.empID().sendKeys("56588");
 	 
+	  Thread.sleep(2000);
+	  mpo.otherID().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+	  mpo.otherID().sendKeys("123345");
+	  
+	 Thread.sleep(2000);
+	  mpo.DrlicenseNo().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+	  mpo.DrlicenseNo().sendKeys("7879455");
+	  
+	 Thread.sleep(2000);
+	  mpo.ssnNo().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+	  mpo.ssnNo().sendKeys("7678");
+	  
+	  Thread.sleep(2000);
+	  mpo.sinNo().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+	  mpo.sinNo().sendKeys("8454556");
+	  
+	  
 	  Thread.sleep(2000);
 	  mpo.clickOnNationalityDropdwon().click();
 	  
@@ -61,9 +80,24 @@ public class myInfoTestCases extends baseClass {
 	   if(k.getText().equalsIgnoreCase("Indian")) {
 	    k.click();
 	             break;
-	   }
+	             }
 	  }
+	 
+	  Thread.sleep(5000);
+	  List<WebElement> obj1= mpo.chooseMaritalStatus();
+	  
+	 for(WebElement k:obj1) {
+	   if(k.getText().equalsIgnoreCase("single")) {
+	    k.click();
+	             break;
+	   }
+	 }
+	  
+		 
 	  
 	 }
-
 }
+	  
+	 
+
+
